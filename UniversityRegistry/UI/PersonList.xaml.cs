@@ -49,15 +49,15 @@ namespace UniversityRegistry.UI
 
 
         /// <summary>
-        /// Event listener that listens for changes
+        /// Event listener that passes on the click event for adding a new person
         /// </summary>
         /// <param name="sender">Changes made to data</param>
         /// <param name="e">The event argument</param>
-        private void AddNewPersonButtonClick(object sender, RoutedEventArgs e)
+        private void AddPerson(object sender, RoutedEventArgs e)
         {
             var person = new Person();
-            person.FirstName = "First";
-            person.LastName = "Last";
+            person.FirstName = "FirstName";
+            person.LastName = "LastName";
             person.Role = Role.Staff;
             person.DateOfBirth = DateTime.Now;
             person.Active = true;
@@ -67,5 +67,7 @@ namespace UniversityRegistry.UI
                 people.Add(person);
             }
         }
+
+
     }
 }

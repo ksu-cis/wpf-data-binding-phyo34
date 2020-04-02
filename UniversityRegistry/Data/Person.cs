@@ -44,26 +44,25 @@ namespace UniversityRegistry.Data
             }
         }
         /// <summary>
-        /// Private backing variable for lastname
-        /// </summary>
+        /// The person's last name private field
         /// </summary>
         private string lastName;
+
         /// <summary>
         /// The person's last name
         /// </summary>
-        public string LastName {
-            get { return lastName; }
+        public string LastName
+        {
+            get { return lastName;}
             set
             {
-                if (lastName == value) return;
-                value = lastName;
+                if (lastName == value)return;
+                lastName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LastName"));
             }
         }
-
-
         /// <summary>
-        /// Private backing variable for dateOfBirth
+        /// The person's date of birth private field
         /// </summary>
         private DateTime dateOfBirth;
 
@@ -72,28 +71,30 @@ namespace UniversityRegistry.Data
         /// </summary>
         public DateTime DateOfBirth
         {
-            get { return dateOfBirth; }
+            get{ return dateOfBirth; }
             set
             {
                 if (dateOfBirth == value) return;
-                value = dateOfBirth;
+                dateOfBirth = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
             }
         }
-
         /// <summary>
-        /// Private backing variable for active bool
+        /// If the person is active in the university private field
         /// </summary>
         private bool active;
+
         /// <summary>
         /// If this person is active in the university (currently a part of the university)
         /// </summary>
-        public bool Active {
+        public bool Active
+        {
             get { return active; }
+
             set
             {
                 if (active == value) return;
-                value = active;
+                active = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Active"));
             }
         }
@@ -129,6 +130,31 @@ namespace UniversityRegistry.Data
             ID = NextID++;
         }
 
+     
+        public bool IsFaculty
+        {
+            get { return Role == Role.Faculty;}
+            set { Role = Role.Faculty;}
+        }
+
+        public bool IsUndergraduateStudent
+        {
+            get{ return Role == Role.UndergraduateStudent; }
+            set { Role = Role.UndergraduateStudent; }
+        }
+
+        public bool IsGraduateStudent
+        {
+            get { return Role == Role.GraduateStudent;}
+            set{ Role = Role.GraduateStudent;}
+        }
+
+        public bool IsStaff
+        {
+            get{return Role == Role.Staff;}
+            set{Role = Role.Staff;}
+        }
+
         /// <summary>
         /// Returns a string identifying the person
         /// </summary>
@@ -137,9 +163,6 @@ namespace UniversityRegistry.Data
         {
             return $"{LastName}, {FirstName} [{ID}]";
         }
-
-     
-
 
 
     }
